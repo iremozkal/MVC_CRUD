@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+
+@using MVC_CRUD.DATA.Model_Entity;
+
+@model List<Category>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Categories</title>
+    <!--Css Libraries-->
+    <link href="~/Assets/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Assets/Content/font-awesome.css" rel="stylesheet" />
+    <!--Js Libraries-->
+    <script src="~/Assets/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Assets/Scripts/bootstrap.js"></script>
+</head>
+<body>
+
+    <div class="container col-md-10 table-responsive" style="padding: 30px 10px;">
+        <h2 class="text-center">Category Operations
+            <span class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalAddUpdateCategory">Add New Category </span>
+        </h2>
+        <br />
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">Category Description</th>
+                    <th scope="col" style="width: 170px">Update / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.CategoryID</th>
+                        <td>@item.CategoryName</td>
+                        <td>@item.Description</td>
+                        <td class="text-center">
+                            <div style="width: 170px">
+                                <button class="btn btn-success btnUpdate" data-toggle="modal" data-target="#modalAddUpdateCategory"
+                                    data-categoryId="@item.CategoryID" data-categoryName="@item.CategoryName" data-categoryDesc="@item.Description"
+                                    style="width: 80px">
+                                    Update
+                                </button>
+                                @Html.ActionLink("Delete", "DeleteCategory", "Category",
+                                    new { @id = item.CategoryID }, new { @class = "btn btn-danger", @style = "width:80px" })
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="modalAddUpdateCategory" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close btnClose" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("AddUpdateCategory", "Category", FormMethod.Post))
+                {
+                    <input type="hidden" id="hdnCategoryId" name="hdnCategoryId" />
+                    
+                    <div class="modal-body clearfix">
+                        <div class="form-group row col-sm-12 col-sm-offset-2">
+                            <label class="col-sm-4 col-form-label">Category Name:</label>
+                            <div class="col-sm-8">
+                                <input name="txtCategoryName" id="txtCategoryName" type="text" class="form-control" 
+                                    placeholder="Enter a name for the category." />
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12 col-sm-offset-2">
+                            <label class="col-sm-4 col-form-label">Description:</label>
+                            <div class="col-sm-8">
+                                <input name="txtCategoryDesc" id="txtCategoryDesc" type="text" class="form-control" 
+                                    placeholder="Enter a decription for the category." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btnClose" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('button.btn.btn-success.btnUpdate').click(function () {
+            $('#txtCategoryName').val($(this).attr('data-categoryName'))
+            $('#txtCategoryDesc').val($(this).attr('data-categoryDesc'))
+            $('#hdnCategoryId').val($(this).attr('data-categoryId'))
+        })
+        $('button.btnClose').click(function () { $('input:text').val("") });
+    </script>
+
+</body>
+</html>

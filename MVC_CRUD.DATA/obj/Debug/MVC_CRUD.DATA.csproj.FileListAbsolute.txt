@@ -1,0 +1,10 @@
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\MVC_CRUD.DATA.dll.config
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\MVC_CRUD.DATA.dll
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\MVC_CRUD.DATA.pdb
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\EntityFramework.dll
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\EntityFramework.xml
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\obj\Debug\MVC_CRUD.DATA.csprojResolveAssemblyReference.cache
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\obj\Debug\MVC_CRUD.DATA.dll
+c:\users\irem\documents\visual studio 2012\Projects\MVC_CRUD\MVC_CRUD.DATA\obj\Debug\MVC_CRUD.DATA.pdb
